@@ -1,0 +1,8 @@
+{
+  "id": "otpgenerator",
+  "name": "OTPGenerator",
+  "version": "1.0",
+  "description": "OTP-Generator",
+  "authors": ["BigCookie233"],
+  "main": "io.github.bigcookie233.otpgenerator.OTPGenerator"
+}

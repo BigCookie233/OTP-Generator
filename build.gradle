@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+repositories {
+    mavenLocal()
+
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+
+    maven {
+        url = uri('https://repo.papermc.io/repository/maven-public/')
+    }
+}
+
+dependencies {
+    compileOnly 'com.velocitypowered:velocity-api:3.3.0-SNAPSHOT'
+    implementation 'dev.samstevens.totp:totp:1.7.1'
+}
+
+group = 'io.github.bigcookie233.otpgenerator'
+
+version = '1.0'
+java.sourceCompatibility = JavaVersion.VERSION_17
+description = 'OTP-Generator'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+}
+
+shadowJar {
+    dependencies {
+        include dependency {
+            'dev.samstevens.totp:totp:1.7.1'
+            'commons-codec:commons-codec:1.13'
+            'com.google.zxing:core:3.4.0'
+            'com.google.zxing:javase:3.4.0'
+            'com.google.zxing:core:3.4.0'
+            'com.beust:jcommander:1.72'
+        }
+    }
+}

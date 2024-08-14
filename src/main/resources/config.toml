@@ -1,0 +1,7 @@
+[secret]
+key = ""
+
+[messages]
+# /token
+success-message = "<green>Your secret code is %code%.</green>"
+failed-message = "<red>You must be a player to send this command.</red>"
