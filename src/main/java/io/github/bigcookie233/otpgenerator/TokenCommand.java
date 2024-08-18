@@ -17,15 +17,10 @@ public class TokenCommand implements SimpleCommand {
                 source.sendMessage(MiniMessage.miniMessage().deserialize(OTPGenerator.config.successMsg.replace("%code%", code)));
             } catch (CodeGenerationException e) {
                 throw new RuntimeException(e);
+
             }
         } else {
-            try {
-                String code = SecretGeneratorUtils.generateCode(SecretGeneratorUtils.calculateSHA256(OTPGenerator.config.secret));
-                source.sendMessage(MiniMessage.miniMessage().deserialize(OTPGenerator.config.successMsg.replace("%code%", code)));
-            } catch (CodeGenerationException e) {
-                throw new RuntimeException(e);
-            }
-
+            source.sendMessage(MiniMessage.miniMessage().deserialize(OTPGenerator.config.failedMsg));
         }
     }
 }
