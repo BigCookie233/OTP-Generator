@@ -3,5 +3,5 @@ key = ""
 
 [messages]
 # /token
-success-message = "<green>Your secret code is %code%.</green>"
+success-message = "<green>Your secret code is <hover:show_text:'click to copy'><click:copy_to_clipboard:%code%>%code%</click></hover>.</green>"
 failed-message = "<red>You must be a player to send this command.</red>"

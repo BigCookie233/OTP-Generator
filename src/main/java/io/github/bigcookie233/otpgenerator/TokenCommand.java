@@ -17,7 +17,6 @@ public class TokenCommand implements SimpleCommand {
                 source.sendMessage(MiniMessage.miniMessage().deserialize(OTPGenerator.config.successMsg.replace("%code%", code)));
             } catch (CodeGenerationException e) {
                 throw new RuntimeException(e);
-
             }
         } else {
             source.sendMessage(MiniMessage.miniMessage().deserialize(OTPGenerator.config.failedMsg));
